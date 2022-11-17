@@ -59,13 +59,17 @@ async function plotMap(){
         }).addTo(buses)
     }
 
-    var overlays = {
-        "Taxis": taxis,
-        "Buses": buses
-    }
-
-    L.control.layers(null, overlays).addTo(map);
     taxis.addTo(map);
+    
+    document.querySelector("#plot-1").addEventListener("click", function(){
+        map.removeLayer(buses);
+        map.addLayer(taxis);
+    })
+
+    document.querySelector("#plot-2").addEventListener("click", function(){
+        map.removeLayer(taxis);
+        map.addLayer(buses);
+    })
 }
 
 
