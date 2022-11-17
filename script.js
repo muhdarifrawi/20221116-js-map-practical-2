@@ -60,15 +60,35 @@ async function plotMap(){
     }
 
     taxis.addTo(map);
-    
+
+    // radio buttons option
+    // document.querySelector("#plot-1").addEventListener("click", function(){
+    //     map.removeLayer(buses);
+    //     map.addLayer(taxis);
+    // })
+
+    // document.querySelector("#plot-2").addEventListener("click", function(){
+    //     map.removeLayer(taxis);
+    //     map.addLayer(buses);
+    // })
+
+    // checkbox option
     document.querySelector("#plot-1").addEventListener("click", function(){
-        map.removeLayer(buses);
-        map.addLayer(taxis);
+        if(map.hasLayer(taxis)){
+            map.removeLayer(taxis);
+        }
+        else{
+            map.addLayer(taxis);
+        }
     })
 
     document.querySelector("#plot-2").addEventListener("click", function(){
-        map.removeLayer(taxis);
-        map.addLayer(buses);
+        if(map.hasLayer(buses)){
+            map.removeLayer(buses);
+        }
+        else{
+            map.addLayer(buses);
+        }
     })
 }
 
