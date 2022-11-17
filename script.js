@@ -34,7 +34,8 @@ async function plotMap(){
     let map = createMap();
 
     let taxiCoordinates = await taxiPoints();
-    var taxis = L.layerGroup();
+    // var taxis = L.layerGroup();
+    var taxis = new L.MarkerClusterGroup();
     for(let t of taxiCoordinates){
         console.log(t)
         let taxiLat = t[1];
